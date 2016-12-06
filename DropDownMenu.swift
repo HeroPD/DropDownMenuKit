@@ -51,7 +51,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 			if isHidden {
 				return
 			}
-			if direction == .down {
+			if intDirection == 1 {
 				contentView.frame.origin.y = visibleContentOffset
 			}
 			else {
@@ -59,7 +59,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 			}
 		}
 	}
-	open var direction = DropDownMenuRevealDirection.down
+    open var intDirection = 0;
 	open let menuView: UITableView
 	open var menuCells = [DropDownMenuCell]() {
 		didSet {
@@ -159,7 +159,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 		}
 
 		backgroundView?.alpha = 0
-		if direction == .down {
+		if intDirection == 1 {
 			contentView.frame.origin.y = -(contentView.frame.height + hiddenContentOffset)
 		}
 		else {
@@ -173,7 +173,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 		    initialSpringVelocity: 1,
 		                  options: UIViewAnimationOptions(),
 		               animations: {
-			if self.direction == .down {
+			if self.intDirection == 1 {
 				self.contentView.frame.origin.y = self.visibleContentOffset
 			}
 			else {
@@ -190,7 +190,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 			return
 		}
 
-		if direction == .down {
+		if intDirection == 1 {
 			contentView.frame.origin.y = visibleContentOffset
 		}
 		else {
@@ -204,7 +204,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 		    initialSpringVelocity: 1,
 		                  options: UIViewAnimationOptions(),
 		               animations: {
-			if self.direction == .down {
+			if self.intDirection == 1 {
 				self.contentView.frame.origin.y = -(self.contentView.frame.height + self.hiddenContentOffset)
 			}
 			else {
