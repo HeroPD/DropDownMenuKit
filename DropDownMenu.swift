@@ -152,7 +152,7 @@ open class DropDownMenu : UIView, UITableViewDataSource, UITableViewDelegate, UI
 	}
 	
 	@IBAction open func show() {
-		precondition(container != nil, "DropDownMenu.container must be set in [presentingController viewDidAppear:]")
+		//precondition(container != nil, "DropDownMenu.container must be set in [presentingController viewDidAppear:]")
 		
 		if !isHidden {
 			return
